@@ -15,6 +15,8 @@
 @property (strong,nonatomic) SCRecorder *recorder;
 @property (strong,nonatomic) SCRecordSession *recordSession;
 
+@property (weak, nonatomic) IBOutlet UIButton *deleteButton;
+@property (weak, nonatomic) IBOutlet UIButton *nextButton;
 @property (weak, nonatomic) IBOutlet UILabel *timeRecordedLabel;
 @property (weak, nonatomic) IBOutlet UIView *bigProgressView;
 @property (nonatomic,assign) BOOL isDelete;
@@ -89,7 +91,12 @@
 - (IBAction)recorder:(UILongPressGestureRecognizer *)sender {
     if (sender.state == UIGestureRecognizerStateBegan) {
         [self.recorder record];
-    [self addProgressView];
+        self.deleteButton.selected = NO;
+        self.bigProgressView.subviews.lastObject.backgroundColor = [UIColor colorWithRed:0.95 green:0.61 blue:0.53 alpha:1.00];
+        
+        [self addProgressView];
+        self.deleteButton.hidden = NO;
+        self.nextButton.hidden = NO;
     }else if(sender.state == UIGestureRecognizerStateEnded){
         [self.recorder pause];
         NSLog(@"%f",CMTimeGetSeconds(self.recorder.session.currentSegmentDuration));
@@ -131,6 +138,8 @@
         [self.recordSession removeLastSegment];
         self.isDelete = NO;
     }
+    self.deleteButton.hidden = !(BOOL)self.bigProgressView.subviews.count;
+    self.nextButton.hidden = !(BOOL)self.bigProgressView.subviews.count;
 }
 
 - (void)recorder:(SCRecorder *)recorder didAppendVideoSampleBufferInSession:(SCRecordSession *)recordSession {

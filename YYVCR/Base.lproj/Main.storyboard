@@ -58,7 +58,7 @@
                                             <constraint firstAttribute="height" constant="100" id="65Q-cj-o0A"/>
                                             <constraint firstAttribute="width" constant="100" id="cW6-c9-tIj"/>
                                         </constraints>
-                                        <state key="normal" title="按住拍">
+                                        <state key="normal" title="Hold">
                                             <color key="titleColor" red="0.16862745100000001" green="0.6588235294" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
@@ -72,8 +72,8 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rLM-hm-DIG">
-                                        <rect key="frame" x="79" y="88" width="30" height="34"/>
-                                        <state key="normal" title="删">
+                                        <rect key="frame" x="68" y="88" width="53" height="34"/>
+                                        <state key="normal" title="Delete">
                                             <color key="titleColor" red="0.16862745100000001" green="0.6588235294" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
@@ -81,8 +81,8 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zPG-0c-88z">
-                                        <rect key="frame" x="258.5" y="90" width="46" height="30"/>
-                                        <state key="normal" title="下一步">
+                                        <rect key="frame" x="265.5" y="90" width="32" height="30"/>
+                                        <state key="normal" title="Next">
                                             <color key="titleColor" red="0.16862745100000001" green="0.6588235294" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
@@ -118,6 +118,8 @@
                     <navigationItem key="navigationItem" id="YZ1-at-LmD"/>
                     <connections>
                         <outlet property="bigProgressView" destination="pGf-Uc-UhC" id="evI-QI-lup"/>
+                        <outlet property="deleteButton" destination="rLM-hm-DIG" id="FVr-f0-7Di"/>
+                        <outlet property="nextButton" destination="zPG-0c-88z" id="yvb-hD-mIS"/>
                         <outlet property="previewView" destination="0z8-G4-etC" id="43u-vh-nHF"/>
                         <outlet property="timeRecordedLabel" destination="lGz-fb-xBx" id="cI5-fk-3Be"/>
                     </connections>
