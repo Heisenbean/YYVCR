@@ -102,6 +102,8 @@
     _playerLayer.frame = self.bounds;
 }
 
+
+
 - (BOOL)tapToPauseEnabled {
     return _tapToPauseGesture != nil;
 }
@@ -139,5 +141,6 @@ static BOOL _autoCreatePlayerWhenNeeded = YES;
 + (void)setAutoCreatePlayerWhenNeeded:(BOOL)autoCreatePlayerWhenNeeded {
     _autoCreatePlayerWhenNeeded = autoCreatePlayerWhenNeeded;
 }
+
 
 @end

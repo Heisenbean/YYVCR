@@ -9,9 +9,12 @@
 #import "ViewController.h"
 #import "SCRecorder.h"
 #import "UIView+LayoutMethods.h"
+#import "VideoEditViewController.h"
 @interface ViewController () <SCRecorderDelegate, UIImagePickerControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIView *previewView;
 @property (strong,nonatomic) SCRecorder *recorder;
+@property (strong,nonatomic) SCRecordSession *recordSession;
+
 @property (weak, nonatomic) IBOutlet UILabel *timeRecordedLabel;
 @property (weak, nonatomic) IBOutlet UIView *bigProgressView;
 @property (nonatomic,assign) BOOL isDelete;
@@ -40,10 +43,10 @@
     recorder.previewView = self.previewView;
     
     
-    SCRecordSession *session = [SCRecordSession recordSession];
-    session.fileType = AVFileTypeQuickTimeMovie;
+    self.recordSession = [SCRecordSession recordSession];
+    self.recordSession.fileType = AVFileTypeQuickTimeMovie;
     
-    recorder.session = session;
+    recorder.session = self.recordSession;
     self.recorder = recorder;
     
     [self updateTimeRecordedLabel];
@@ -125,18 +128,25 @@
     self.isDelete = YES;
     if (self.isDelete && !sender.selected) {
         [lastView removeFromSuperview];
+        [self.recordSession removeLastSegment];
         self.isDelete = NO;
     }
 }
 
 - (void)recorder:(SCRecorder *)recorder didAppendVideoSampleBufferInSession:(SCRecordSession *)recordSession {
     if (CMTimeGetSeconds(recordSession.duration) == 10) {
-        [recorder stopRunning];
+        [recorder pause];
 //        // jump to next page
     }
-//    NSLog(@"====%f",CMTimeGetSeconds(recordSession.currentSegmentDuration));
+
     [self changeProgressWidth:recordSession];
     [self updateTimeRecordedLabel];
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([segue.destinationViewController isKindOfClass:[VideoEditViewController class]]) {
+        VideoEditViewController *videoPlayer = segue.destinationViewController;
+        videoPlayer.recordSession = _recordSession;
+    }
+}
 @end

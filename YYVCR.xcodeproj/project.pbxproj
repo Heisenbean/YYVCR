@@ -44,6 +44,7 @@
 		356967051EAF39AD00DBD770 /* UIImage+SCSaveToCameraRoll.m in Sources */ = {isa = PBXBuildFile; fileRef = 356966E81EAF39AD00DBD770 /* UIImage+SCSaveToCameraRoll.m */; };
 		356967081EAF39C000DBD770 /* UIView+LayoutMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 356967071EAF39C000DBD770 /* UIView+LayoutMethods.m */; };
 		3569670A1EAF3A1900DBD770 /* ProgressLine.xib in Resources */ = {isa = PBXBuildFile; fileRef = 356967091EAF3A1900DBD770 /* ProgressLine.xib */; };
+		3569670D1EAF436500DBD770 /* VideoEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3569670C1EAF436500DBD770 /* VideoEditViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -122,6 +123,8 @@
 		356967061EAF39C000DBD770 /* UIView+LayoutMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+LayoutMethods.h"; sourceTree = "<group>"; };
 		356967071EAF39C000DBD770 /* UIView+LayoutMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+LayoutMethods.m"; sourceTree = "<group>"; };
 		356967091EAF3A1900DBD770 /* ProgressLine.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProgressLine.xib; sourceTree = "<group>"; };
+		3569670B1EAF436500DBD770 /* VideoEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoEditViewController.h; sourceTree = "<group>"; };
+		3569670C1EAF436500DBD770 /* VideoEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoEditViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +162,8 @@
 				356966971EAF392100DBD770 /* AppDelegate.m */,
 				356966991EAF392100DBD770 /* ViewController.h */,
 				3569669A1EAF392100DBD770 /* ViewController.m */,
+				3569670B1EAF436500DBD770 /* VideoEditViewController.h */,
+				3569670C1EAF436500DBD770 /* VideoEditViewController.m */,
 				356967091EAF3A1900DBD770 /* ProgressLine.xib */,
 				356967061EAF39C000DBD770 /* UIView+LayoutMethods.h */,
 				356967071EAF39C000DBD770 /* UIView+LayoutMethods.m */,
@@ -347,6 +352,7 @@
 				356966F01EAF39AD00DBD770 /* SCFilter.m in Sources */,
 				356966F41EAF39AD00DBD770 /* SCIOPixelBuffers.m in Sources */,
 				356966F91EAF39AD00DBD770 /* SCRecorder.m in Sources */,
+				3569670D1EAF436500DBD770 /* VideoEditViewController.m in Sources */,
 				356966F11EAF39AD00DBD770 /* SCFilterAnimation.m in Sources */,
 				356966FB1EAF39AD00DBD770 /* SCRecorderTools.m in Sources */,
 				356966951EAF392100DBD770 /* main.m in Sources */,

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="A8D-5v-cJu">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -42,7 +42,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lGz-fb-xBx">
-                                <rect key="frame" x="26" y="30" width="42" height="21"/>
+                                <rect key="frame" x="26" y="74" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -85,6 +85,9 @@
                                         <state key="normal" title="下一步">
                                             <color key="titleColor" red="0.16862745100000001" green="0.6588235294" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="i2q-tj-xs0" kind="show" id="m6o-IC-HLX"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -112,6 +115,7 @@
                             <constraint firstItem="5qo-uH-aSv" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="pYg-y5-Y9V"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="YZ1-at-LmD"/>
                     <connections>
                         <outlet property="bigProgressView" destination="pGf-Uc-UhC" id="evI-QI-lup"/>
                         <outlet property="previewView" destination="0z8-G4-etC" id="43u-vh-nHF"/>
@@ -125,7 +129,58 @@
                     </connections>
                 </pongPressGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-34" y="-76"/>
+            <point key="canvasLocation" x="904.79999999999995" y="-76.011994002998506"/>
+        </scene>
+        <!--Video Edit View Controller-->
+        <scene sceneID="tp0-jN-n2y">
+            <objects>
+                <viewController id="i2q-tj-xs0" customClass="VideoEditViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="SsH-ME-srF"/>
+                        <viewControllerLayoutGuide type="bottom" id="QOb-cm-Bbh"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="tUi-QD-xkh">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hsS-yZ-iud" customClass="SCSwipeableFilterView">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="hsS-yZ-iud" firstAttribute="leading" secondItem="tUi-QD-xkh" secondAttribute="leading" id="92M-bj-edc"/>
+                            <constraint firstAttribute="trailing" secondItem="hsS-yZ-iud" secondAttribute="trailing" id="Prc-pv-0b6"/>
+                            <constraint firstItem="hsS-yZ-iud" firstAttribute="top" secondItem="SsH-ME-srF" secondAttribute="bottom" id="mjZ-wg-qUa"/>
+                            <constraint firstAttribute="bottom" secondItem="hsS-yZ-iud" secondAttribute="bottom" id="qEd-tR-OIE"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="filterSwitcherView" destination="hsS-yZ-iud" id="yBs-Yr-OdE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GJb-aR-HTk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1796" y="-96.7016491754123"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="YVy-cn-QA2">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="A8D-5v-cJu" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ve5-tE-5zm">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="P0P-iK-Fe7"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gLa-df-gqY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-34.399999999999999" y="-76.011994002998506"/>
         </scene>
     </scenes>
 </document>

@@ -61,4 +61,7 @@
  */
 + (BOOL)autoCreatePlayerWhenNeeded;
 
+- (void)previewViewFrameChanged;
+
+
 @end
