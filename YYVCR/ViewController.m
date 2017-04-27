@@ -10,6 +10,7 @@
 #import "SCRecorder.h"
 #import "UIView+LayoutMethods.h"
 #import "VideoEditViewController.h"
+#import "UIBarButtonItem+Extension.h"
 @interface ViewController () <SCRecorderDelegate, UIImagePickerControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIView *previewView;
 @property (strong,nonatomic) SCRecorder *recorder;
@@ -36,7 +37,10 @@
     if (![recorder startRunning]) {
         NSLog(@"Something wrong there: %@", recorder.error);
     }
-    
+    UIBarButtonItem *flashes = [UIBarButtonItem itemWithBgImage:[UIImage imageNamed:@"Group_bg"] highBgImage:[UIImage imageNamed:@"Group_bg"] target:self imageInsets:UIEdgeInsetsZero action:@selector(didClickedFlashedButton:)];
+    UIBarButtonItem *reverseCamera = [UIBarButtonItem itemWithBgImage:[UIImage imageNamed:@"xj _bg"] highBgImage:[UIImage imageNamed:@"xj _bg"] target:self imageInsets:UIEdgeInsetsZero action:@selector(didClickedReverseButton)];
+
+    self.navigationItem.rightBarButtonItems = @[flashes,reverseCamera];
     // Create a new session and set it to the recorder
     recorder.session = [SCRecordSession recordSession];
 //    recorder.maxRecordDuration = CMTimeMake(10, 2);
@@ -60,6 +64,49 @@
     [self.recorder previewViewFrameChanged];
 }
 
+- (void)didClickedFlashedButton:(UIButton *)button{
+    NSString *flashModeString = nil;
+    if ([_recorder.captureSessionPreset isEqualToString:AVCaptureSessionPresetPhoto]) {
+        switch (_recorder.flashMode) {
+            case SCFlashModeAuto:
+                flashModeString = @"Flash : Off";
+                _recorder.flashMode = SCFlashModeOff;
+                break;
+            case SCFlashModeOff:
+                flashModeString = @"Flash : On";
+                _recorder.flashMode = SCFlashModeOn;
+                break;
+            case SCFlashModeOn:
+                flashModeString = @"Flash : Light";
+                _recorder.flashMode = SCFlashModeLight;
+                break;
+            case SCFlashModeLight:
+                flashModeString = @"Flash : Auto";
+                _recorder.flashMode = SCFlashModeAuto;
+                break;
+            default:
+                break;
+        }
+    } else {
+        switch (_recorder.flashMode) {
+            case SCFlashModeOff:
+                flashModeString = @"Flash : On";
+                _recorder.flashMode = SCFlashModeLight;
+                break;
+            case SCFlashModeLight:
+                flashModeString = @"Flash : Off";
+                _recorder.flashMode = SCFlashModeOff;
+                break;
+            default:
+                break;
+        }
+    }
+    
+}
+
+- (void)didClickedReverseButton{
+    [self.recorder switchCaptureDevices];
+}
 
 - (void)updateTimeRecordedLabel {
     CMTime currentTime = kCMTimeZero;
@@ -111,7 +158,7 @@
     CGFloat screenWidth = [UIScreen mainScreen].bounds.size.width;
     UIView *lastView = self.bigProgressView.subviews.lastObject;
     [self.view layoutIfNeeded];
-    [UIView animateWithDuration:1.0 animations:^{
+    [UIView animateWithDuration:0.2 animations:^{
         lastView.width = (screenWidth / maxRecorderTime) * recorderTime;
         [self.view layoutIfNeeded];
     }];
@@ -143,13 +190,13 @@
 }
 
 - (void)recorder:(SCRecorder *)recorder didAppendVideoSampleBufferInSession:(SCRecordSession *)recordSession {
-    if (CMTimeGetSeconds(recordSession.duration) == 10) {
+    if (CMTimeGetSeconds(recordSession.duration) == 90) {
         [recorder pause];
 //        // jump to next page
     }
 
-    [self changeProgressWidth:recordSession];
     [self updateTimeRecordedLabel];
+    [self changeProgressWidth:recordSession];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
