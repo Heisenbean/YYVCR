@@ -15,7 +15,7 @@
 @property (weak, nonatomic) IBOutlet UIView *previewView;
 @property (strong,nonatomic) SCRecorder *recorder;
 @property (strong,nonatomic) SCRecordSession *recordSession;
-
+@property (weak, nonatomic) IBOutlet UIButton *minTimeTip;
 @property (weak, nonatomic) IBOutlet UIButton *deleteButton;
 @property (weak, nonatomic) IBOutlet UIButton *nextButton;
 @property (weak, nonatomic) IBOutlet UILabel *timeRecordedLabel;
@@ -140,7 +140,7 @@
         [self.recorder record];
         self.deleteButton.selected = NO;
         self.bigProgressView.subviews.lastObject.backgroundColor = [UIColor colorWithRed:0.95 green:0.61 blue:0.53 alpha:1.00];
-        
+        self.minTimeTip.hidden = YES;
         [self addProgressView];
         self.deleteButton.hidden = NO;
         self.nextButton.hidden = NO;
@@ -153,7 +153,7 @@
 }
 
 - (void)changeProgressWidth:(SCRecordSession *)session{
-    CGFloat maxRecorderTime = 10;
+    CGFloat maxRecorderTime = 90;
     CGFloat recorderTime = CMTimeGetSeconds(session.currentSegmentDuration);
     CGFloat screenWidth = [UIScreen mainScreen].bounds.size.width;
     UIView *lastView = self.bigProgressView.subviews.lastObject;
@@ -201,8 +201,18 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if ([segue.destinationViewController isKindOfClass:[VideoEditViewController class]]) {
-        VideoEditViewController *videoPlayer = segue.destinationViewController;
-        videoPlayer.recordSession = _recordSession;
+        
     }
+}
+- (IBAction)next:(UIButton *)sender {
+    if (CMTimeGetSeconds(_recordSession.duration) < 3.0) {
+        self.minTimeTip.hidden = NO;
+    }else{
+        UIStoryboard *sb = [UIStoryboard storyboardWithName:@"VideoEdit" bundle:nil];
+        VideoEditViewController *videoPlayer = [sb instantiateInitialViewController];
+        videoPlayer.recordSession = _recordSession;
+        [self.navigationController pushViewController:videoPlayer animated:YES];
+    }
+    
 }
 @end

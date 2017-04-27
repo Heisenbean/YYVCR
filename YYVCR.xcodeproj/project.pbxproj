@@ -46,6 +46,7 @@
 		3569670A1EAF3A1900DBD770 /* ProgressLine.xib in Resources */ = {isa = PBXBuildFile; fileRef = 356967091EAF3A1900DBD770 /* ProgressLine.xib */; };
 		3569670D1EAF436500DBD770 /* VideoEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3569670C1EAF436500DBD770 /* VideoEditViewController.m */; };
 		356967101EB1E73B00DBD770 /* UIBarButtonItem+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 3569670F1EB1E73B00DBD770 /* UIBarButtonItem+Extension.m */; };
+		356967141EB1F53200DBD770 /* VideoEdit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 356967131EB1F53200DBD770 /* VideoEdit.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -128,6 +129,7 @@
 		3569670C1EAF436500DBD770 /* VideoEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoEditViewController.m; sourceTree = "<group>"; };
 		3569670E1EB1E73B00DBD770 /* UIBarButtonItem+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Extension.h"; sourceTree = "<group>"; };
 		3569670F1EB1E73B00DBD770 /* UIBarButtonItem+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Extension.m"; sourceTree = "<group>"; };
+		356967131EB1F53200DBD770 /* VideoEdit.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = VideoEdit.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +174,7 @@
 				356967071EAF39C000DBD770 /* UIView+LayoutMethods.m */,
 				3569670E1EB1E73B00DBD770 /* UIBarButtonItem+Extension.h */,
 				3569670F1EB1E73B00DBD770 /* UIBarButtonItem+Extension.m */,
+				356967131EB1F53200DBD770 /* VideoEdit.storyboard */,
 				3569669C1EAF392100DBD770 /* Main.storyboard */,
 				3569669F1EAF392100DBD770 /* Assets.xcassets */,
 				356966A11EAF392100DBD770 /* LaunchScreen.storyboard */,
@@ -319,6 +322,7 @@
 			files = (
 				356966A31EAF392100DBD770 /* LaunchScreen.storyboard in Resources */,
 				356966A01EAF392100DBD770 /* Assets.xcassets in Resources */,
+				356967141EB1F53200DBD770 /* VideoEdit.storyboard in Resources */,
 				3569670A1EAF3A1900DBD770 /* ProgressLine.xib in Resources */,
 				3569669E1EAF392100DBD770 /* Main.storyboard in Resources */,
 			);

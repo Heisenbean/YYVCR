@@ -33,12 +33,32 @@
                                             <constraint firstAttribute="height" constant="3" id="uNO-2U-4JZ"/>
                                         </constraints>
                                     </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bqP-lY-wZ7">
+                                        <rect key="frame" x="11.5" y="454" width="2" height="3"/>
+                                        <color key="backgroundColor" red="0.1058823529" green="0.74509803919999995" blue="0.066666666669999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="2" id="qVA-LS-sgD"/>
+                                            <constraint firstAttribute="height" constant="3" id="slT-e7-DED"/>
+                                        </constraints>
+                                    </view>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FR9-EZ-vTl">
+                                        <rect key="frame" x="0.0" y="421" width="110" height="31"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="3"/>
+                                        <state key="normal" title="拍摄时间至少3秒" backgroundImage="Combined Shape">
+                                            <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstItem="bqP-lY-wZ7" firstAttribute="top" secondItem="pGf-Uc-UhC" secondAttribute="top" id="3Ym-54-P8e"/>
                                     <constraint firstAttribute="trailing" secondItem="pGf-Uc-UhC" secondAttribute="trailing" id="B6Y-zc-PaZ"/>
+                                    <constraint firstItem="bqP-lY-wZ7" firstAttribute="centerX" secondItem="pGf-Uc-UhC" secondAttribute="centerX" multiplier="1:15" id="XPn-LZ-3jS"/>
                                     <constraint firstItem="pGf-Uc-UhC" firstAttribute="leading" secondItem="0z8-G4-etC" secondAttribute="leading" id="j2U-o4-R84"/>
+                                    <constraint firstItem="FR9-EZ-vTl" firstAttribute="leading" secondItem="0z8-G4-etC" secondAttribute="leading" id="kCA-nz-uBk"/>
                                     <constraint firstAttribute="bottom" secondItem="pGf-Uc-UhC" secondAttribute="bottom" id="pkZ-Pg-paL"/>
+                                    <constraint firstItem="pGf-Uc-UhC" firstAttribute="top" secondItem="FR9-EZ-vTl" secondAttribute="bottom" constant="2" id="qVA-Tx-vdI"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lGz-fb-xBx">
@@ -86,7 +106,7 @@
                                             <color key="titleColor" red="0.16862745100000001" green="0.6588235294" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
-                                            <segue destination="i2q-tj-xs0" kind="show" id="m6o-IC-HLX"/>
+                                            <action selector="next:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1lJ-hJ-Wxv"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -119,6 +139,7 @@
                     <connections>
                         <outlet property="bigProgressView" destination="pGf-Uc-UhC" id="evI-QI-lup"/>
                         <outlet property="deleteButton" destination="rLM-hm-DIG" id="FVr-f0-7Di"/>
+                        <outlet property="minTimeTip" destination="FR9-EZ-vTl" id="BIe-4c-8vZ"/>
                         <outlet property="nextButton" destination="zPG-0c-88z" id="yvb-hD-mIS"/>
                         <outlet property="previewView" destination="0z8-G4-etC" id="43u-vh-nHF"/>
                         <outlet property="timeRecordedLabel" destination="lGz-fb-xBx" id="cI5-fk-3Be"/>
@@ -132,39 +153,6 @@
                 </pongPressGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="904.79999999999995" y="-76.011994002998506"/>
-        </scene>
-        <!--Video Edit View Controller-->
-        <scene sceneID="tp0-jN-n2y">
-            <objects>
-                <viewController id="i2q-tj-xs0" customClass="VideoEditViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="SsH-ME-srF"/>
-                        <viewControllerLayoutGuide type="bottom" id="QOb-cm-Bbh"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="tUi-QD-xkh">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hsS-yZ-iud" customClass="SCSwipeableFilterView">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="hsS-yZ-iud" firstAttribute="leading" secondItem="tUi-QD-xkh" secondAttribute="leading" id="92M-bj-edc"/>
-                            <constraint firstAttribute="trailing" secondItem="hsS-yZ-iud" secondAttribute="trailing" id="Prc-pv-0b6"/>
-                            <constraint firstItem="hsS-yZ-iud" firstAttribute="top" secondItem="SsH-ME-srF" secondAttribute="bottom" id="mjZ-wg-qUa"/>
-                            <constraint firstAttribute="bottom" secondItem="hsS-yZ-iud" secondAttribute="bottom" id="qEd-tR-OIE"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="filterSwitcherView" destination="hsS-yZ-iud" id="yBs-Yr-OdE"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="GJb-aR-HTk" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1796" y="-96.7016491754123"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="YVy-cn-QA2">
@@ -185,4 +173,7 @@
             <point key="canvasLocation" x="-34.399999999999999" y="-76.011994002998506"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Combined Shape" width="110" height="31"/>
+    </resources>
 </document>

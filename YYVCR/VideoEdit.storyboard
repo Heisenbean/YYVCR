@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="fqj-IE-pDg">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Video Edit View Controller-->
+        <scene sceneID="VTj-gC-7bP">
+            <objects>
+                <viewController id="fqj-IE-pDg" customClass="VideoEditViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="yiW-Sg-FhQ"/>
+                        <viewControllerLayoutGuide type="bottom" id="5R0-1F-RV1"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="zzk-Vn-Uaz">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4z9-74-8dA" customClass="SCSwipeableFilterView">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="4z9-74-8dA" secondAttribute="trailing" id="7vp-ge-cnf"/>
+                            <constraint firstAttribute="bottom" secondItem="4z9-74-8dA" secondAttribute="bottom" id="IBW-fp-kJh"/>
+                            <constraint firstItem="4z9-74-8dA" firstAttribute="leading" secondItem="zzk-Vn-Uaz" secondAttribute="leading" id="IbF-Ms-iAC"/>
+                            <constraint firstItem="4z9-74-8dA" firstAttribute="top" secondItem="yiW-Sg-FhQ" secondAttribute="bottom" id="qqM-ub-9ze"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="filterSwitcherView" destination="4z9-74-8dA" id="X3T-1N-L0z"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Tj-wX-VXO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1796" y="-96.7016491754123"/>
+        </scene>
+    </scenes>
+</document>
