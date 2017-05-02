@@ -192,18 +192,13 @@
 - (void)recorder:(SCRecorder *)recorder didAppendVideoSampleBufferInSession:(SCRecordSession *)recordSession {
     if (CMTimeGetSeconds(recordSession.duration) == 90) {
         [recorder pause];
-//        // jump to next page
+        [self next:self.nextButton];
     }
 
     [self updateTimeRecordedLabel];
     [self changeProgressWidth:recordSession];
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    if ([segue.destinationViewController isKindOfClass:[VideoEditViewController class]]) {
-        
-    }
-}
 - (IBAction)next:(UIButton *)sender {
     if (CMTimeGetSeconds(_recordSession.duration) < 3.0) {
         self.minTimeTip.hidden = NO;

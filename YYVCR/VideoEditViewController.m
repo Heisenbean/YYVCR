@@ -11,9 +11,9 @@
 @interface VideoEditViewController ()
 @property (strong, nonatomic) SCAssetExportSession *exportSession;
 @property (strong, nonatomic) SCPlayer *player;
-@property (weak, nonatomic) IBOutlet SCSwipeableFilterView *filterSwitcherView;
-@property (strong,nonatomic) SCVideoPlayerView *playerView;
+@property (weak, nonatomic) IBOutlet UIImageView *corverImage;
 
+@property (weak, nonatomic) IBOutlet SCVideoPlayerView *playerView;
 @end
 
 @implementation VideoEditViewController
@@ -21,12 +21,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     _player = [SCPlayer player];
-    _playerView = [[SCVideoPlayerView alloc] initWithPlayer:_player];
+    _playerView.player = _player;
     _playerView.playerLayer.videoGravity = AVLayerVideoGravityResizeAspectFill;
-    _playerView.frame = self.filterSwitcherView.frame;
-    
-    [self.filterSwitcherView.superview insertSubview:_playerView aboveSubview:self.filterSwitcherView];
-    [self.filterSwitcherView removeFromSuperview];
     _player.loopEnabled = YES;
 
 }
@@ -40,7 +36,6 @@
 
 
 - (void)dealloc {
-    self.filterSwitcherView = nil;
     [_player pause];
     _player = nil;
     [self cancelSaveToCameraRoll];
@@ -52,6 +47,31 @@
 }
 
 
+- (IBAction)thumbImage:(id)sender {
+   UIImage *cover = [self thumbnailImageForVideo:self.recordSession.outputUrl atTime:0.1];
+    self.corverImage.image = cover;
+}
+
+-(UIImage*) thumbnailImageForVideo:(NSURL *)videoURL atTime:(NSTimeInterval)time {
+    NSURL *url = [NSURL URLWithString:videoURL.path];
+    AVURLAsset *asset = [[AVURLAsset alloc] initWithURL:url options:nil];
+    NSParameterAssert(asset);
+    AVAssetImageGenerator *assetImageGenerator =[[AVAssetImageGenerator alloc] initWithAsset:asset];
+    assetImageGenerator.appliesPreferredTrackTransform = YES;
+    assetImageGenerator.apertureMode = AVAssetImageGeneratorApertureModeEncodedPixels;
+    
+    CGImageRef thumbnailImageRef = NULL;
+    CFTimeInterval thumbnailImageTime = time;
+    NSError *thumbnailImageGenerationError = nil;
+    thumbnailImageRef = [assetImageGenerator copyCGImageAtTime:CMTimeMake(thumbnailImageTime, 60)actualTime:NULL error:&thumbnailImageGenerationError];
+    
+    if(!thumbnailImageRef)
+        NSLog(@"thumbnailImageGenerationError %@",thumbnailImageGenerationError);
+    
+    UIImage*thumbnailImage = thumbnailImageRef ? [[UIImage alloc]initWithCGImage: thumbnailImageRef] : nil;
+    
+    return thumbnailImage;
+}
 
 
 - (void)didReceiveMemoryWarning {
