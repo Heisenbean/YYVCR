@@ -26,7 +26,7 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="400"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="odn-65-dn3">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="odn-65-dn3">
                                 <rect key="frame" x="0.0" y="436" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="edo-PH-trc"/>

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		35552C601EBC681A00DD97FF /* UIImage+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 35552C5F1EBC681A00DD97FF /* UIImage+Utils.m */; };
 		356966951EAF392100DBD770 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 356966941EAF392100DBD770 /* main.m */; };
 		356966981EAF392100DBD770 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 356966971EAF392100DBD770 /* AppDelegate.m */; };
 		3569669B1EAF392100DBD770 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3569669A1EAF392100DBD770 /* ViewController.m */; };
@@ -45,11 +46,12 @@
 		356967081EAF39C000DBD770 /* UIView+LayoutMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 356967071EAF39C000DBD770 /* UIView+LayoutMethods.m */; };
 		3569670A1EAF3A1900DBD770 /* ProgressLine.xib in Resources */ = {isa = PBXBuildFile; fileRef = 356967091EAF3A1900DBD770 /* ProgressLine.xib */; };
 		3569670D1EAF436500DBD770 /* VideoEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3569670C1EAF436500DBD770 /* VideoEditViewController.m */; };
-		356967101EB1E73B00DBD770 /* UIBarButtonItem+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 3569670F1EB1E73B00DBD770 /* UIBarButtonItem+Extension.m */; };
 		356967141EB1F53200DBD770 /* VideoEdit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 356967131EB1F53200DBD770 /* VideoEdit.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		35552C5E1EBC681A00DD97FF /* UIImage+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Utils.h"; sourceTree = "<group>"; };
+		35552C5F1EBC681A00DD97FF /* UIImage+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Utils.m"; sourceTree = "<group>"; };
 		356966901EAF392100DBD770 /* YYVCR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YYVCR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		356966941EAF392100DBD770 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		356966961EAF392100DBD770 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -127,8 +129,6 @@
 		356967091EAF3A1900DBD770 /* ProgressLine.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProgressLine.xib; sourceTree = "<group>"; };
 		3569670B1EAF436500DBD770 /* VideoEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoEditViewController.h; sourceTree = "<group>"; };
 		3569670C1EAF436500DBD770 /* VideoEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoEditViewController.m; sourceTree = "<group>"; };
-		3569670E1EB1E73B00DBD770 /* UIBarButtonItem+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Extension.h"; sourceTree = "<group>"; };
-		3569670F1EB1E73B00DBD770 /* UIBarButtonItem+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Extension.m"; sourceTree = "<group>"; };
 		356967131EB1F53200DBD770 /* VideoEdit.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = VideoEdit.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -171,9 +171,9 @@
 				3569670C1EAF436500DBD770 /* VideoEditViewController.m */,
 				356967091EAF3A1900DBD770 /* ProgressLine.xib */,
 				356967061EAF39C000DBD770 /* UIView+LayoutMethods.h */,
+				35552C5E1EBC681A00DD97FF /* UIImage+Utils.h */,
+				35552C5F1EBC681A00DD97FF /* UIImage+Utils.m */,
 				356967071EAF39C000DBD770 /* UIView+LayoutMethods.m */,
-				3569670E1EB1E73B00DBD770 /* UIBarButtonItem+Extension.h */,
-				3569670F1EB1E73B00DBD770 /* UIBarButtonItem+Extension.m */,
 				356967131EB1F53200DBD770 /* VideoEdit.storyboard */,
 				3569669C1EAF392100DBD770 /* Main.storyboard */,
 				3569669F1EAF392100DBD770 /* Assets.xcassets */,
@@ -359,12 +359,12 @@
 				356967041EAF39AD00DBD770 /* SCWeakSelectorTarget.m in Sources */,
 				356966FC1EAF39AD00DBD770 /* SCRecorderToolsView.m in Sources */,
 				356966F01EAF39AD00DBD770 /* SCFilter.m in Sources */,
+				35552C601EBC681A00DD97FF /* UIImage+Utils.m in Sources */,
 				356966F41EAF39AD00DBD770 /* SCIOPixelBuffers.m in Sources */,
 				356966F91EAF39AD00DBD770 /* SCRecorder.m in Sources */,
 				3569670D1EAF436500DBD770 /* VideoEditViewController.m in Sources */,
 				356966F11EAF39AD00DBD770 /* SCFilterAnimation.m in Sources */,
 				356966FB1EAF39AD00DBD770 /* SCRecorderTools.m in Sources */,
-				356967101EB1E73B00DBD770 /* UIBarButtonItem+Extension.m in Sources */,
 				356966951EAF392100DBD770 /* main.m in Sources */,
 				356966FE1EAF39AD00DBD770 /* SCRecordSessionSegment.m in Sources */,
 				356966F21EAF39AD00DBD770 /* SCFilterImageView.m in Sources */,
